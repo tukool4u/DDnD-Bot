@@ -1,0 +1,30 @@
+{
+  "name": "ddnd-bot",
+  "version": "0.0.1",
+  "description": "Discord bot to randomly create adventures",
+  "main": "ddnd-bot.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tukool4u/DDnD-Bot.git"
+  },
+  "keywords": [
+    "Discord",
+    "firebase",
+    "dungeons",
+    "dragons",
+    "5e"
+  ],
+  "author": "tukool B3achBoy",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/tukool4u/DDnD-Bot/issues"
+  },
+  "homepage": "https://github.com/tukool4u/DDnD-Bot#readme",
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "firebase": "^9.12.1"
+  }
+}

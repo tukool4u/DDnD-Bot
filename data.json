@@ -1,0 +1,108 @@
+{
+    "races": [
+        { "channel": "1", "frequency": "275.800Mhz" },
+        { "channel": "2", "frequency": "327.000Mhz" },
+        { "channel": "3", "frequency": "385.400Mhz" },
+        { "channel": "4", "frequency": "270.100Mhz" },
+        { "channel": "5", "frequency": "377.800Mhz" }
+    ],
+
+    "classes": [
+		{ "callsign": "Switch", "role": "Switch Flight", "airframe": "FA18C", "unit": "VFA151" },
+		{ "callsign": "Hammer", "role": "Hammer Flight", "airframe": "F16C", "unit": "480THFS" },
+		{ "callsign": "Super", "role": "Super Flight", "airframe": "A10C", "unit": "25THFS" },
+		{ "callsign": "Jolly", "role": "Jolly Flight", "airframe": "UH60", "unit": "66THRQS" },
+		{ "callsign": "Sabre", "role": "JTAC", "airframe": "", "unit": "1STCCT" }
+	],
+	
+    "weapons": [
+		{ "callsign": "Switch", "role": "Switch Flight", "airframe": "FA18C", "unit": "VFA151" }
+	],
+	
+	"scenarios": [
+		{ "id": "block0305", "field": { "label": "Block 3-5", "description": "3000'MSL to 5000'MSL", "value": "block0305" }},
+		{ "id": "block0608", "field": { "label": "Block 6-8", "description": "6000'MSL to 8000'MSL", "value": "block0608" }},
+		{ "id": "block0911", "field": { "label": "Block 9-11", "description": "9000'MSL to 11000'MSL", "value": "block0911" }},
+		{ "id": "block1214", "field": { "label": "Block 12-14", "description": "12000'MSL to 14000'MSL", "value": "block1214" }},
+		{ "id": "block1517", "field": { "label": "Block 15-17", "description": "15000'MSL to 17000'MSL", "value": "block1517" }},
+		{ "id": "block1820", "field": { "label": "Block 18-20", "description": "18000'MSL to 20000'MSL", "value": "block1820" }},
+		{ "id": "block2123", "field": { "label": "Block 21-23", "description": "21000'MSL to 23000'MSL", "value": "block2123" }},
+		{ "id": "block2426", "field": { "label": "Block 24-26", "description": "24000'MSL to 26000'MSL", "value": "block2426" }},
+		{ "id": "block2729", "field": { "label": "Block 27-29", "description": "27000'MSL to 29000'MSL", "value": "block2729" }}
+    ],
+
+    "actions": [
+        { 
+            "name": "FLEX TURNOUT (DREAM)",
+            "field": { "label": "FLEX TURNOUT (DREAM) - EAST", "description": "", "value": "FLXDR" },
+            "transition": { "lat": "N36 34.400", "lon": "W114 59.538" },
+            "routings": [
+                { "range": "62", "route": [ "a" ] },
+                { "range": "74", "route": [ "a", "j" ] },
+                { "range": "75", "route": [ "a", "j", "k" ] },
+                { "range": "COYOTE", "route": [ "a" ] }
+            ]
+        },
+
+        { 
+            "name": "DREAM FOUR",
+            "field": { "label": "DREAM FOUR - EAST", "description": "", "value": "DRMFR" },
+            "transition": { "lat": "N36 43.800", "lon": "W114 52.767" },
+            "routings": [
+                { "range": "62", "route": [ "a" ] },
+                { "range": "74", "route": [ "a", "j" ] },
+                { "range": "75", "route": [ "a", "j", "k" ] },
+                { "range": "COYOTE", "route": [ "a" ] }
+            ]
+        },
+
+        { 
+            "name": "FLEX TURNOUT (FYTTR)",
+            "field": { "label": "FLEX TURNOUT (FYTTR) - WEST", "description": "", "value": "FLXFY" },
+            "transition": { "lat": "N36 18.973", "lon": "W115 25.823" },
+            "routings": [
+                { "range": "63", "route": [  ] },
+                { "range": "64", "route": [  ] },
+                { "range": "65", "route": [  ] },
+                { "range": "71", "route": [ "b", "d" ] },
+                { "range": "74", "route": [ "b", "e" ] },
+                { "range": "75", "route": [ "b", "e" ] },
+                { "range": "76", "route": [ "b", "g" ] },
+                { "range": "ECS", "route": [ "c" ] }
+            ]
+        },
+
+        { 
+            "name": "FYTTR THREE",
+            "field": { "label": "FYTTR THREE - WEST", "description": "", "value": "FYTTH" },
+            "transition": { "lat": "N36 21.440", "lon": "W115 41.470" },
+            "routings": [
+                { "range": "63", "route": [  ] },
+                { "range": "64", "route": [  ] },
+                { "range": "65", "route": [  ] },
+                { "range": "71", "route": [ "b", "d" ] },
+                { "range": "74", "route": [ "b", "e" ] },
+                { "range": "75", "route": [ "b", "e" ] },
+                { "range": "76", "route": [ "b", "g" ] },
+                { "range": "ECS", "route": [ "c" ] }
+            ]
+        },
+
+        { 
+            "name": "FYTTR LOW",
+            "field": { "label": "FYTTR LOW - WEST", "description": "", "value": "FYTLW" },
+            "transition": { "lat": "N36 18.973", "lon": "W115 25.823" },
+            "routings": [
+                { "range": "63", "route": [  ] },
+                { "range": "64", "route": [  ] },
+                { "range": "65", "route": [  ] },
+                { "range": "71", "route": [ "b", "d" ] },
+                { "range": "74", "route": [ "b", "e" ] },
+                { "range": "75", "route": [ "b", "e" ] },
+                { "range": "76", "route": [ "b", "g" ] },
+                { "range": "ECS", "route": [ "c" ] }
+            ]
+        }
+    ]
+	
+}
