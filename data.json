@@ -37,7 +37,7 @@
 		{ "label": "Assassination", "description": "One shot, one kill", "value": "block0608" },
 		{ "label": "Clumsy", "description": "Be careful who you bump into", "value": "block0911" },
 		{ "label": "Accused", "description": "A terrible case of mistaken identity", "value": "block1214" },
-		{ "label": "Block 15-17", "description": "15000'MSL to 17000'MSL", "value": "block1517" }
+		{ "label": "Set-Up", "description": "Is that free mug of ale really ale?", "value": "block1517" }
     ],
 
     "actions": [
