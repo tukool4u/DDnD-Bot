@@ -56,7 +56,7 @@ client.on('interactionCreate', async interaction => {
 		if (interaction.customId === 'ACK') {
 			interaction.update({ ephemeral: true, embeds: [ await menus.getScenarioEmbed() ], components: [] });
 		} else {
-			interaction.reply({ ephemeral: true, embeds: [], components: [], content: 'You big baby. Oh well, maybe another time.' });
+			interaction.update({ ephemeral: true, embeds: [], components: [], content: 'You big baby. Oh well, maybe another time.' });
 		}
 	}
 	
