@@ -76,7 +76,7 @@ async function getActiveFlightPlans(guild) {
     return await embed;
 }
 
-async function getScenario() {
+async function getRandomScenario() {
 	const scenarios = jGameData.scenarios;
 
 	return await scenarios[Math.floor(Math.random() * scenarios.length)];
@@ -173,134 +173,19 @@ module.exports = {
 	},
 	
 	// begin embeds
-	unavailableEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#ff0000')
-			.setTitle('ALERT')
-			.setDescription('There are no available flights at this time.\n\nPlease try again later.')
-	},
-
 	welcomeEmbed: function () {
 		return new EmbedBuilder()
 			.setColor('#0099ff')
 			.setTitle('New DDnD Adventure')
 			.setDescription('Welcome daring adventurer!. You are about to embark on a magnificent journey into the nether-realms of dragons, magic, treasure, and calamity. Eh... not really. Just a bar fight.\n\nAre you ready to begin?')
 	},
-
-	generalEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#ff9900')
-			.setTitle('General Flight')
-			.setDescription(`**PLEASE NOTE**: All tankers operate on **${jRangeInfo.frequencies['CH4']} (CH4)**.\n\n**Which location would you like to use?**`)
-	},
-
-	casEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#0099ff')
-			.setTitle('CAS')
-			.setDescription('**PLEASE NOTE**: This option is only to be used with JTAC.\n\n**Which range do you plan to use?**')
-	},
-		
-	jtacEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#0099ff')
-			.setTitle('JTAC')
-			.setDescription('**PLEASE NOTE**: You must submit a standard flight plan if flying as **FAC(A)**.\n\n**Which range do you plan to use?**')
-	},
-		
-	airToAirEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#ff9900')
-			.setTitle('Air-to-Air')
-			.setDescription('All Air-to-Air training will take place within **COYOTE/REVEILLE** to the __North__.\n\nCheck in with **BLACKJACK** then\nuse frequency __**234.325Mhz (CH8)**__ before entering range.\n\n**How much time do you need?**')
-	},
-
-	rangeComplexEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#9900ff')
-			.setTitle('Range Complex')
-			.setDescription('**Which range complex do you plan to use?**')
-	},
-
-	rangeEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#9900ff')
-			.setTitle('Range')
-			.setDescription('**Which range do you plan to use?**')
-	},
-
-	rangeDetailsEmbed: function (id) {
-		const range = jRangeInfo.ranges.find(r => r.id === id);
-		const freq = jRangeInfo.frequencies.find(f => f.channel === range.frequency).frequency;
-		const restrictions = range.restrictions.map(restriction => `\`- ${restriction}\`\n`).join('');
-		
-		return new MessageEmbed()
-			.setColor('#ff44ff')
-			.setTitle(range.name)
-			.setDescription(`The frequency for this range is **${freq} (CH${range.frequency}).**\n\n${restrictions}\n**NOTE: YOU MUST MAINTAIN THIS ALITUDE BLOCK UNLESS ATTACKING OR NAVIGATING TERRAIN**.\n\n**Which altitude block do you plan to use?**`);
-	},
-
-	durationEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#ff9900')
-			.setTitle('Flight Time')
-			.setDescription('**PLEASE NOTE**: The time starts once the flight plan has been submitted.\n\n**How much time do you need?**')
-	},
-
-	flightSizeEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#ff9900')
-			.setTitle('Flight Size')
-			.setDescription('**How many aircraft are in your flight?**')
-	},
-
-	flightEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#ff9900')
-			.setTitle('Callsign/Element')
-			.setDescription('**Which callsign will you be using?**')
-	},
-
-	routingEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#ff5500')
-			.setTitle('Routing')
-			.setDescription('**Do you want cool auto-routing or boring custom routing?**')
-	},
-
-	departureEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#ff5500')
-			.setTitle('Departure')
-			.setDescription('**Which departure do you want to use?**')
-	},
-
-	approachEmbed: function () {
-		return new MessageEmbed()
-			.setColor('#ff5500')
-			.setTitle('Approach')
-			.setDescription('**Which approach do you want to use?**')
-	},
 		
 	getScenarioEmbed: async function () {
 		const embed = new EmbedBuilder();
-		const scenario = await getScenario();
+		const scenario = await getRandomScenario();
 		
-		embed.setTitle(`Scenario - ${scenario.label}`);
+		embed.setTitle(`Scenario - ${scenario.title}`);
 		embed.setDescription(scenario.description);
-		
-		return embed;
-	},
-		
-	getUploadEmbed: function (expiry, iconURL) {
-		const embed = new MessageEmbed();
-		
-		embed.setTitle('Upload Flight Plan');
-		embed.setThumbnail(iconURL);
-		embed.setDescription('Please upload a picture of your flight plan from **[Combined Ops](https://planner.combinedops.org/project_dashboard.php?project_id=234#div_select_msn)**.\n\n**PLEASE NOTE:** Your Flight Plan should have **Departure**, **Range Entry**, **Hold/IP**, **Exit** and **Recovery** points clearly marked.');
-		
-		embed.description += `\n\n**TAKEOFF NLT <t:${Math.floor(new Date(new Date().getTime() + 20 * 60000).getTime() / 1000)}:t>**`;
-		embed.description += `\n**LAND NLT <t:${Math.floor(new Date(new Date().getTime() + expiry * 3600000).getTime() / 1000)}:t>**`;
 		
 		return embed;
 	},
