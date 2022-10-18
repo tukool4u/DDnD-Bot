@@ -33,11 +33,35 @@
 	],
 	
 	"scenarios": [
-		{ "label": "Pickpocket", "description": "He doesn't need that shiny dagger, does he?", "value": "block0305" },
-		{ "label": "Assassination", "description": "One shot, one kill", "value": "block0608" },
-		{ "label": "Clumsy", "description": "Be careful who you bump into", "value": "block0911" },
-		{ "label": "Accused", "description": "A terrible case of mistaken identity", "value": "block1214" },
-		{ "label": "Set-Up", "description": "Is that free mug of ale really ale?", "value": "block1517" }
+		{ 
+            "title": "Pickpocket",
+            "description": "He doesn't need that shiny dagger, does he?",
+            "story": "" 
+        },
+
+		{
+            "title": "Assassination", 
+            "description": "One shot, one kill",
+            "story": ""
+        },
+
+		{ 
+            "title": "Clumsy", 
+            "description": "Be careful who you bump into", 
+            "story": "" 
+        },
+
+		{ 
+            "title": "Accused", 
+            "description": "A terrible case of mistaken identity", 
+            "story": "" 
+        },
+
+		{ 
+            "title": "Set-Up", 
+            "description": "Is that free mug of ale really ale?", 
+            "story": "" 
+        }
     ],
 
     "actions": [
