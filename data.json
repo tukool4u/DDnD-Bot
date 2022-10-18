@@ -1,34 +1,43 @@
 {
     "races": [
-        { "channel": "1", "frequency": "275.800Mhz" },
-        { "channel": "2", "frequency": "327.000Mhz" },
-        { "channel": "3", "frequency": "385.400Mhz" },
-        { "channel": "4", "frequency": "270.100Mhz" },
-        { "channel": "5", "frequency": "377.800Mhz" }
+        { "name": "Halfling", "bonuses": [ { "dex": 2 }, { "cha": 1 } ] },
+        { "name": "Dragonborn", "bonuses": [ { "cha": 2 }, { "str": 1 } ] },
+		{ "name": "Elf", "bonuses": [ { "dex": 2 }, { "int": 1 } ] },
+		{ "name": "Half-Orc", "bonuses": [ { "str": 2 }, { "con": 1 } ] },
+		{ "name": "Dwarf", "bonuses": [ { "con": 2 }, { "str": 1 } ] }
     ],
 
     "classes": [
-		{ "callsign": "Switch", "role": "Switch Flight", "airframe": "FA18C", "unit": "VFA151" },
-		{ "callsign": "Hammer", "role": "Hammer Flight", "airframe": "F16C", "unit": "480THFS" },
-		{ "callsign": "Super", "role": "Super Flight", "airframe": "A10C", "unit": "25THFS" },
-		{ "callsign": "Jolly", "role": "Jolly Flight", "airframe": "UH60", "unit": "66THRQS" },
-		{ "callsign": "Sabre", "role": "JTAC", "airframe": "", "unit": "1STCCT" }
+		{ "name": "Barbarian", "role": "Switch Flight", "airframe": "FA18C", "unit": "VFA151" },
+		{ "name": "Wizard", "role": "Hammer Flight", "airframe": "F16C", "unit": "480THFS" },
+		{ "name": "Rogue", "role": "Super Flight", "airframe": "A10C", "unit": "25THFS" },
+		{ "name": "Cleric", "role": "Jolly Flight", "airframe": "UH60", "unit": "66THRQS" },
+		{ "name": "Bard", "role": "JTAC", "airframe": "", "unit": "1STCCT" }
 	],
 	
     "weapons": [
-		{ "callsign": "Switch", "role": "Switch Flight", "airframe": "FA18C", "unit": "VFA151" }
+		{ "name": "Longsword", "damage": [ { "hi": 8, "lo": 1 } ], "modifier": "str", "classes": [ "Barbarian", "Bard", "Cleric"] },
+		{ "name": "Staff", "damage": [ { "hi": 6, "lo": 1 } ], "modifier": "dex", "classes": [ "Barbarian", "Rogue", "Bard", "Cleric", "Wizard"] },
+		{ "name": "Dagger", "damage": [ { "hi": 4, "lo": 1 } ], "modifier": "dex", "classes": [ "Barbarian", "Rogue", "Bard", "Cleric", "Wizard"] },
+		{ "name": "Axe", "damage": [ { "hi": 12, "lo": 1 } ], "modifier": "str", "classes": [ "Barbarian", "Cleric"] },
+		{ "name": "Halberd", "damage": [ { "hi": 10, "lo": 1 } ], "modifier": "str", "classes": [ "Barbarian", "Cleric"] }		
+	],
+	
+	"spells": [
+		{ "name": "Magic Missile", "damage": [ { "hi": 5, "lo": 2, "qty": 5 } ], "modifier": "", "class": "Wizard" },
+		{ "name": "Cure Wounds", "damage": [ { "hi": 8, "lo": 1, "qty": 3 } ], "modifier": "wis", "class": [ "Wizard", "Cleric" ] },
+		{ "name": "Inflict Wounds", "damage": [ { "hi": 50, "lo": 5, "qty": 1 } ], "modifier": "", "class": "Cleric" },
+		{ "name": "Insect Plague", "damage": [ { "hi": 8, "lo": 2, "qty": 1 } ], "modifier": "", "class": "Cleric" },
+		{ "name": "Shield", "damage": [ { "hi": 8, "lo": 1, "qty": 3 } ], "modifier": "", "class": "Wizard" }
+		
 	],
 	
 	"scenarios": [
-		{ "id": "block0305", "field": { "label": "Block 3-5", "description": "3000'MSL to 5000'MSL", "value": "block0305" }},
-		{ "id": "block0608", "field": { "label": "Block 6-8", "description": "6000'MSL to 8000'MSL", "value": "block0608" }},
-		{ "id": "block0911", "field": { "label": "Block 9-11", "description": "9000'MSL to 11000'MSL", "value": "block0911" }},
-		{ "id": "block1214", "field": { "label": "Block 12-14", "description": "12000'MSL to 14000'MSL", "value": "block1214" }},
-		{ "id": "block1517", "field": { "label": "Block 15-17", "description": "15000'MSL to 17000'MSL", "value": "block1517" }},
-		{ "id": "block1820", "field": { "label": "Block 18-20", "description": "18000'MSL to 20000'MSL", "value": "block1820" }},
-		{ "id": "block2123", "field": { "label": "Block 21-23", "description": "21000'MSL to 23000'MSL", "value": "block2123" }},
-		{ "id": "block2426", "field": { "label": "Block 24-26", "description": "24000'MSL to 26000'MSL", "value": "block2426" }},
-		{ "id": "block2729", "field": { "label": "Block 27-29", "description": "27000'MSL to 29000'MSL", "value": "block2729" }}
+		{ "label": "Pickpocket", "description": "He doesn't need that shiny dagger, does he?", "value": "block0305" },
+		{ "label": "Assassination", "description": "One shot, one kill", "value": "block0608" },
+		{ "label": "Clumsy", "description": "Be careful who you bump into", "value": "block0911" },
+		{ "label": "Accused", "description": "A terrible case of mistaken identity", "value": "block1214" },
+		{ "label": "Block 15-17", "description": "15000'MSL to 17000'MSL", "value": "block1517" }
     ],
 
     "actions": [

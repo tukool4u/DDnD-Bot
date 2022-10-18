@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "Discord bot to randomly create adventures",
   "main": "ddnd-bot.js",
-  "scripts": {
-    "test": "mocha --reporter spec"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tukool4u/DDnD-Bot.git"
@@ -17,7 +15,10 @@
     "dragons",
     "5e"
   ],
-  "author": "tukool B3achBoy",
+  "author": [
+    "tukool",
+    "B3achBoy"
+  ],
   "license": "AGPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/tukool4u/DDnD-Bot/issues"
