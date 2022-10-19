@@ -139,14 +139,6 @@ module.exports = {
 		return jSCL.airframes.find(a => a.id === airframe);
 	},
 	
-	getPNCs: function () {
-		return jPNC.pncs;
-	},
-	
-	getThreats: function (type) {
-		return jThreats.threats[type];
-	},
-	
 	// begin embeds
 	welcomeEmbed: function () {
 		return new EmbedBuilder()
@@ -232,11 +224,11 @@ module.exports = {
         return await new ActionRowBuilder().addComponents(
             new SelectMenuBuilder()
                 .setCustomId('actions')
-                .setPlaceholder('actions')
+                .setPlaceholder('Actions')
                 .addOptions(actions)
         );
     },
-    
+
 	getZones: async function () {
 		const zones = await getAvailableZones();
 		
