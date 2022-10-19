@@ -17,7 +17,7 @@ module.exports = {
 		const collector = interaction.channel.createMessageComponentCollector({ filter, componentType: "SELECT_MENU", idle: 30000, dispose: true });
 
 		// start new game
-		await interaction.reply({ ephemeral: true, embeds: [ menus.welcomeEmbed() ], components: [ await menus.yesNoButtons() ] });
+		await interaction.reply({ ephemeral: false, embeds: [ menus.welcomeEmbed() ], components: [ await menus.yesNoButtons() ] });
 
 		collector.on('collect', async i => {
 			const menu = i.customId;
