@@ -54,7 +54,7 @@ client.on('interactionCreate', async interaction => {
 	// handle button interactions
 	if (interaction.isButton()) {
 		if (interaction.customId === 'ACK') {
-			interaction.update({ ephemeral: false, embeds: [ await menus.getScenarioEmbed() ], components: [] });
+			interaction.update({ ephemeral: false, embeds: [ await menus.getScenarioEmbed() ], components: [ await menus.getActions() ] });
 		} else {
 			interaction.update({ ephemeral: true, embeds: [], components: [], content: 'You big baby. Oh well, maybe another time.' });
 		}
