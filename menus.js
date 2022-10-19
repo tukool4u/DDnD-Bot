@@ -76,20 +76,16 @@ async function getActiveFlightPlans(guild) {
     return await embed;
 }
 
-async function getRandomScenario() {
-	const scenarios = jGameData.scenarios;
-
-	return await scenarios[Math.floor(Math.random() * scenarios.length)];
+async function getRandomRace() {
+	return await jGameData.races[Math.floor(Math.random() * jGameData.races.length)];
 }
 
-async function getAvailableComplexes(guildId) {
-	const flightplans = await firebase.getActiveFlightPlans(guildId);
-	const complexes = jRangeInfo.complexes;
-	const active = flightplans ? Object.keys(flightplans).map(fp_key => flightplans[fp_key].range) : null;
-	const filtered = active ? jRangeInfo.ranges.filter(r => !active.includes(r.id)).map(c => c.complex) : complexes.map(c => c.id);
-	const fields = complexes.filter(c => filtered.includes(c.id)).map(c => c.field);
-	
-	return await fields;
+async function getRandomClass() {
+	return await jGameData.classes[Math.floor(Math.random() * jGameData.classes.length)];
+}
+
+async function getRandomScenario() {
+	return await jGameData.scenarios[Math.floor(Math.random() * jGameData.scenarios.length)];
 }
 
 async function getAvailableRanges(guildId, complex) {
@@ -102,41 +98,9 @@ async function getAvailableRanges(guildId, complex) {
 	return await fields;
 }
 
-async function getAvailableBlocks(guildId, range) {
-	const flightplans = await firebase.getActiveFlightPlans(guildId);
-	const blocks = jRangeInfo.blocks.filter(b => jRangeInfo.ranges.find(r => r.id === range).blocks.includes(b.id));
-	const complex = jRangeInfo.ranges.find(r => r.id === range).complex;
-	const active = flightplans ? Object.keys(flightplans).filter(fp_key => flightplans[fp_key].complex === complex).map(fp_key => flightplans[fp_key].block) : null;
-	const filtered = active ? blocks.filter(b => !active.includes(b.field.value)) : blocks;
-	const fields = filtered.map(b => b.field);
-	
-	return await fields;
-}
-
-async function getAvailableFlights(guildId, callsign) {
-	const flightplans = await firebase.getActiveFlightPlans(guildId);
-	const active = flightplans ? Object.keys(flightplans).filter(k => flightplans[k].flight.includes(callsign)).map(k => flightplans[k].flight) : null;
-	const filtered = active ? jRangeInfo.elements.filter(e => !active.includes(`${callsign} ${e}`)) : jRangeInfo.elements;
-	const fields = filtered.map(e => ({ label: `${callsign} ${e}`, value: `${callsign} ${e}` }));
-	
-	return await fields;
-}
-
 // exports
 module.exports = {
-    clearRange: async function (guildId, id) {
-        return await clearRange(guildId, id);
-    },
-	
-	cancelFlightPlan: async function (interaction) {
-		return await cancelFlightPlan(interaction);
-	},
-	
-	cancelATO: async function (interaction) {
-		return await cancelATO(interaction);
-	},
-	
-	getActiveFlightPlans: async function (guildId) {
+    getActiveFlightPlans: async function (guildId) {
 		return await getActiveFlightPlans(guildId);
 	},
 	
