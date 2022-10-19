@@ -163,7 +163,7 @@ module.exports = {
         const protagonist = Math.random() < 0.5 ? player : opponent;
 		
 		embed.setTitle(`Scenario - ${scenario.title}`);
-        embed.setDescription(`*${scenario.description}*\n\nYou are a **${player.p_race.name} ${player.p_class.name}** (${player.p_abilities.join()}) and you just **${protagonist === opponent ? 'were caught' : 'caught someone'} ${scenario.action}**. A **${opponent.o_race.name} ${opponent.o_class.name}** (${opponent.o_abilities.join()})...`);
+        embed.setDescription(`*${scenario.description}*\n\nYou are a **${player.p_race.name} ${player.p_class.name}** (${player.p_abilities.join()}), and you **${protagonist === opponent ? 'were caught' : 'caught someone'} ${scenario.action}**. A **${opponent.o_race.name} ${opponent.o_class.name}** (${opponent.o_abilities.join()}) stands before you. What do you do?`);
         
 		return embed;
 	},
