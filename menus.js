@@ -161,9 +161,10 @@ module.exports = {
         const c_race = await getRandomRace();
         const c_class = await getRandomClass();
         const c_abilities = getAbilityScores();
+        const protagonist = Math.random() < 0.5;
 		
 		embed.setTitle(`Scenario - ${scenario.title}`);
-        embed.setDescription(`*${scenario.description}*\n\nYou are a **${c_race.name} ${c_class.name}** (${c_abilities.join()}) and you just found yourself...`);
+        embed.setDescription(`*${scenario.description}*\n\nYou are a **${c_race.name} ${c_class.name}** (${c_abilities.join()}) and you just **${protagonist ? 'were caught' : 'caught someone'} ${scenario.action}** ...`);
         
 		return embed;
 	},

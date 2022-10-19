@@ -8,11 +8,11 @@
     ],
 
     "classes": [
-		{ "name": "Barbarian", "role": "Switch Flight", "airframe": "FA18C", "unit": "VFA151" },
-		{ "name": "Wizard", "role": "Hammer Flight", "airframe": "F16C", "unit": "480THFS" },
-		{ "name": "Rogue", "role": "Super Flight", "airframe": "A10C", "unit": "25THFS" },
-		{ "name": "Cleric", "role": "Jolly Flight", "airframe": "UH60", "unit": "66THRQS" },
-		{ "name": "Bard", "role": "JTAC", "airframe": "", "unit": "1STCCT" }
+		{ "name": "Barbarian", "prof": "str", "airframe": "FA18C", "unit": "VFA151" },
+		{ "name": "Wizard", "prof": "int", "airframe": "F16C", "unit": "480THFS" },
+		{ "name": "Rogue", "prof": "dex", "airframe": "A10C", "unit": "25THFS" },
+		{ "name": "Cleric", "prof": "con", "airframe": "UH60", "unit": "66THRQS" },
+		{ "name": "Bard", "prof": "cha", "airframe": "", "unit": "1STCCT" }
 	],
 	
     "weapons": [
@@ -36,30 +36,35 @@
 		{ 
             "title": "Pickpocket",
             "description": "He doesn't need that shiny dagger, does he?",
+            "action": "stealing",
             "story": "" 
         },
 
 		{
             "title": "Assassination", 
             "description": "One shot, one kill",
+            "action": "attacking",
             "story": ""
         },
 
 		{ 
             "title": "Clumsy", 
             "description": "Be careful who you bump into", 
+            "action": "bumping",
             "story": "" 
         },
 
 		{ 
             "title": "Accused", 
             "description": "A terrible case of mistaken identity", 
+            "action": "accusing",
             "story": "" 
         },
 
 		{ 
             "title": "Set-Up", 
             "description": "Is that free mug of ale really ale?", 
+            "action": "attempting",
             "story": "" 
         }
     ],
