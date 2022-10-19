@@ -92,7 +92,7 @@ function getAbilityScores() {
     const scores = [];
 
     // assign base ability scores, 10-18
-    for (i = 0; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
         scores[i] = Math.floor(Math.random() * 8) + 10; 
     }
 
