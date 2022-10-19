@@ -37,6 +37,7 @@
             "title": "Pickpocket",
             "description": "He doesn't need that shiny dagger, does he?",
             "action": "stealing",
+            "target": "",
             "story": "" 
         },
 
@@ -44,6 +45,7 @@
             "title": "Assassination", 
             "description": "One shot, one kill",
             "action": "attacking",
+            "target": "",
             "story": ""
         },
 
@@ -51,6 +53,7 @@
             "title": "Clumsy", 
             "description": "Be careful who you bump into", 
             "action": "bumping",
+            "target": "",
             "story": "" 
         },
 
@@ -58,6 +61,7 @@
             "title": "Accused", 
             "description": "A terrible case of mistaken identity", 
             "action": "accusing",
+            "target": "",
             "story": "" 
         },
 
@@ -65,82 +69,17 @@
             "title": "Set-Up", 
             "description": "Is that free mug of ale really ale?", 
             "action": "attempting",
+            "target": "",
             "story": "" 
         }
     ],
 
     "actions": [
-        { 
-            "name": "FLEX TURNOUT (DREAM)",
-            "field": { "label": "FLEX TURNOUT (DREAM) - EAST", "description": "", "value": "FLXDR" },
-            "transition": { "lat": "N36 34.400", "lon": "W114 59.538" },
-            "routings": [
-                { "range": "62", "route": [ "a" ] },
-                { "range": "74", "route": [ "a", "j" ] },
-                { "range": "75", "route": [ "a", "j", "k" ] },
-                { "range": "COYOTE", "route": [ "a" ] }
-            ]
-        },
-
-        { 
-            "name": "DREAM FOUR",
-            "field": { "label": "DREAM FOUR - EAST", "description": "", "value": "DRMFR" },
-            "transition": { "lat": "N36 43.800", "lon": "W114 52.767" },
-            "routings": [
-                { "range": "62", "route": [ "a" ] },
-                { "range": "74", "route": [ "a", "j" ] },
-                { "range": "75", "route": [ "a", "j", "k" ] },
-                { "range": "COYOTE", "route": [ "a" ] }
-            ]
-        },
-
-        { 
-            "name": "FLEX TURNOUT (FYTTR)",
-            "field": { "label": "FLEX TURNOUT (FYTTR) - WEST", "description": "", "value": "FLXFY" },
-            "transition": { "lat": "N36 18.973", "lon": "W115 25.823" },
-            "routings": [
-                { "range": "63", "route": [  ] },
-                { "range": "64", "route": [  ] },
-                { "range": "65", "route": [  ] },
-                { "range": "71", "route": [ "b", "d" ] },
-                { "range": "74", "route": [ "b", "e" ] },
-                { "range": "75", "route": [ "b", "e" ] },
-                { "range": "76", "route": [ "b", "g" ] },
-                { "range": "ECS", "route": [ "c" ] }
-            ]
-        },
-
-        { 
-            "name": "FYTTR THREE",
-            "field": { "label": "FYTTR THREE - WEST", "description": "", "value": "FYTTH" },
-            "transition": { "lat": "N36 21.440", "lon": "W115 41.470" },
-            "routings": [
-                { "range": "63", "route": [  ] },
-                { "range": "64", "route": [  ] },
-                { "range": "65", "route": [  ] },
-                { "range": "71", "route": [ "b", "d" ] },
-                { "range": "74", "route": [ "b", "e" ] },
-                { "range": "75", "route": [ "b", "e" ] },
-                { "range": "76", "route": [ "b", "g" ] },
-                { "range": "ECS", "route": [ "c" ] }
-            ]
-        },
-
-        { 
-            "name": "FYTTR LOW",
-            "field": { "label": "FYTTR LOW - WEST", "description": "", "value": "FYTLW" },
-            "transition": { "lat": "N36 18.973", "lon": "W115 25.823" },
-            "routings": [
-                { "range": "63", "route": [  ] },
-                { "range": "64", "route": [  ] },
-                { "range": "65", "route": [  ] },
-                { "range": "71", "route": [ "b", "d" ] },
-                { "range": "74", "route": [ "b", "e" ] },
-                { "range": "75", "route": [ "b", "e" ] },
-                { "range": "76", "route": [ "b", "g" ] },
-                { "range": "ECS", "route": [ "c" ] }
-            ]
-        }
+        { "label": "ATTACK", "description": "Fight for your life!", "value": "ATTACK" },
+        { "label": "DECEIVE", "description": "Lie your way out of this.", "value": "DECEIVE" },
+        { "label": "PERSUADE", "description": "Convince your opponent you are sorry.", "value": "PERSUADE" },
+        { "label": "INTIMIDATE", "description": "Scare your opponent off without a fight.", "value": "INTIMIDATE" },
+        { "label": "RUN", "description": "Run while you can!", "value": "RUN" }
     ]
 	
 }
