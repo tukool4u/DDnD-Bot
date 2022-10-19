@@ -146,11 +146,13 @@ module.exports = {
 		
 	getScenarioEmbed: async function () {
 		const embed = new EmbedBuilder();
-		const scenario = await getRandomScenario();
+        const scenario = await getRandomScenario();
+        const c_race = await getRandomRace();
+        const c_class = await getRandomClass();
 		
 		embed.setTitle(`Scenario - ${scenario.title}`);
-		embed.setDescription(scenario.description);
-		
+        embed.setDescription(`${scenario.description}\n\nYou are a ${c_race} ${c_class} and you just found yourself...`);
+        
 		return embed;
 	},
 	
