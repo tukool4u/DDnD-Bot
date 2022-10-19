@@ -160,9 +160,10 @@ module.exports = {
         const scenario = await getRandomScenario();
         const c_race = await getRandomRace();
         const c_class = await getRandomClass();
+        const c_abilities = getAbilityScores();
 		
 		embed.setTitle(`Scenario - ${scenario.title}`);
-        embed.setDescription(`*${scenario.description}*\n\nYou are a **${c_race.name} ${c_class.name}** and you just found yourself...`);
+        embed.setDescription(`*${scenario.description}*\n\nYou are a **${c_race.name} ${c_class.name}** (${c_abilities.join()}) and you just found yourself...`);
         
 		return embed;
 	},
