@@ -88,6 +88,17 @@ async function getRandomScenario() {
 	return await jGameData.scenarios[Math.floor(Math.random() * jGameData.scenarios.length)];
 }
 
+function getAbilityScores() {
+    const scores = [];
+
+    // assign base ability scores, 10-18
+    for (i = 0; i < 6; i++) {
+        scores[i] = Math.floor(Math.random() * 8) + 10; 
+    }
+
+    return scores;
+}
+
 async function getAvailableRanges(guildId, complex) {
 	const flightplans = await firebase.getActiveFlightPlans(guildId);
 	const ranges = jRangeInfo.ranges.filter(r => r.complex === complex);
