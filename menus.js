@@ -91,9 +91,9 @@ async function getRandomScenario() {
 function getAbilityScores() {
     const scores = [];
 
-    // assign base ability scores, 10-18
+    // assign base ability scores, 10-16 allowing for max +2 racial bonus
     for (let i = 0; i < 6; i++) {
-        scores[i] = Math.floor(Math.random() * 8) + 10; 
+        scores[i] = Math.floor(Math.random() * 6) + 10; 
     }
 
     return scores;
