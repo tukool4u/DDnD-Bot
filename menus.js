@@ -226,6 +226,17 @@ module.exports = {
 	},
 	
 	// begin menus
+    getActions: async function () {
+        const actions = jGameData.actions;
+
+        return await new ActionRowBuilder().addComponents(
+            new SelectMenuBuilder()
+                .setCustomId('actions')
+                .setPlaceholder('actions')
+                .addOptions(actions)
+        );
+    },
+    
 	getZones: async function () {
 		const zones = await getAvailableZones();
 		
