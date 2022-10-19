@@ -158,13 +158,12 @@ module.exports = {
 	getScenarioEmbed: async function () {
 		const embed = new EmbedBuilder();
         const scenario = await getRandomScenario();
-        const c_race = await getRandomRace();
-        const c_class = await getRandomClass();
-        const c_abilities = getAbilityScores();
-        const protagonist = Math.random() < 0.5;
+        const player = { p_race: await getRandomRace(), p_class: await getRandomClass(), p_abilities: getAbilityScores() };
+        const opponent = { o_race: await getRandomRace(), o_class: await getRandomClass(), o_abilities: getAbilityScores() };
+        const protagonist = Math.random() < 0.5 ? player : opponent;
 		
 		embed.setTitle(`Scenario - ${scenario.title}`);
-        embed.setDescription(`*${scenario.description}*\n\nYou are a **${c_race.name} ${c_class.name}** (${c_abilities.join()}) and you just **${protagonist ? 'were caught' : 'caught someone'} ${scenario.action}** ...`);
+        embed.setDescription(`*${scenario.description}*\n\nYou are a **${player.p_race.name} ${player.p_class.name}** (${player.p_abilities.join()}) and you just **${protagonist === opponent ? 'were caught' : 'caught someone'} ${scenario.action}**. A **${opponent.o_race.name} ${opponent.o_class.name}** (${opponent.o_abilities.join()})...`);
         
 		return embed;
 	},
