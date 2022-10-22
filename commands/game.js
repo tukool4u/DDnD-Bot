@@ -40,8 +40,10 @@ function getAbilityScores() {
     return scores;
 }
 
-const player = () => {
-    return { race: getRandomRace(), class: getRandomClass(), abilities: getAbilityScores() }
+const player = {
+    race: getRandomRace(),
+    class: getRandomClass(),
+    abilities: getAbilityScores()
 }
 
 const opponent = {
