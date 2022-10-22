@@ -53,14 +53,9 @@ const opponent = {
 }
 
 module.exports = {
-    player: function () { return player; },
-    opponent: function () { return opponent; },
-
-	async execute(interaction) {
+    async execute(interaction) {
 		const roles = interaction.member.roles.cache.map(r => r.name);
 		
-		const game = {};
-
 		const filter = (i) => (i.user.id === interaction.user.id && !interaction.user.bot);
 
 		const collector = interaction.channel.createMessageComponentCollector({ filter, componentType: "SELECT_MENU", idle: 30000, dispose: true });
