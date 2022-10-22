@@ -7,7 +7,7 @@ const fs = require('fs');
 
 //const firebase = require('./firebase.js');
 
-const jGameData = JSON.parse(fs.readFileSync('./data.json'));
+const game = require('./commands/game.js');
 
 async function cancelFlightPlan(interaction) {
     const embed = new MessageEmbed();
@@ -76,29 +76,6 @@ async function getActiveFlightPlans(guild) {
     return await embed;
 }
 
-async function getRandomRace() {
-	return await jGameData.races[Math.floor(Math.random() * jGameData.races.length)];
-}
-
-async function getRandomClass() {
-	return await jGameData.classes[Math.floor(Math.random() * jGameData.classes.length)];
-}
-
-async function getRandomScenario() {
-	return await jGameData.scenarios[Math.floor(Math.random() * jGameData.scenarios.length)];
-}
-
-function getAbilityScores() {
-    const scores = [];
-
-    // assign base ability scores, 10-16 allowing for max +2 racial bonus
-    for (let i = 0; i < 6; i++) {
-        scores[i] = Math.floor(Math.random() * 6) + 10; 
-    }
-
-    return scores;
-}
-
 async function getAvailableRanges(guildId, complex) {
 	const flightplans = await firebase.getActiveFlightPlans(guildId);
 	const ranges = jRangeInfo.ranges.filter(r => r.complex === complex);
@@ -150,14 +127,19 @@ module.exports = {
 	getScenarioEmbed: async function () {
 		const embed = new EmbedBuilder();
         const scenario = await getRandomScenario();
-        const player = { p_race: await getRandomRace(), p_class: await getRandomClass(), p_abilities: getAbilityScores() };
-        const opponent = { o_race: await getRandomRace(), o_class: await getRandomClass(), o_abilities: getAbilityScores() };
         const protagonist = Math.random() < 0.5 ? player : opponent;
 		
 		embed.setTitle(`Scenario - ${scenario.title}`);
-        embed.setDescription(`*${scenario.description}*\n\nYou are a **${player.p_race.name} ${player.p_class.name}** (${player.p_abilities.join()}), and you **${protagonist === opponent ? 'were caught' : 'caught someone'} ${scenario.action}**. A **${opponent.o_race.name} ${opponent.o_class.name}** (${opponent.o_abilities.join()}) stands before you. What do you do?`);
+        embed.setDescription(`*${scenario.description}*\n\nYou are a **${game.player.race.name} ${game.player.class.name}** (${game.player.abilities.join()}), and you **${protagonist === opponent ? 'were caught' : 'caught someone'} ${scenario.action}**. A **${game.opponent.race.name} ${game.opponent.class.name}** (${game.opponent.abilities.join()}) stands before you. What do you do?`);
         
 		return embed;
+    },
+    
+    getAttackEmbed: function () {
+		return new EmbedBuilder()
+			.setColor('#ff0000')
+			.setTitle('ATTACK!')
+			.setDescription('You have attacked your opponent!')
 	},
 	
 	getAtoEmbed: async function (interaction, roles, settings) {
