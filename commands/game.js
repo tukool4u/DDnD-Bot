@@ -5,12 +5,61 @@ const { MessageEmbed, MessageActionRow, MessageButton, Modal } = require('discor
 const fs = require('fs');
 
 const menus = require('../menus.js');
+const jGameData = JSON.parse(fs.readFileSync('./data.json'));
+
+function rollDice(number, value, modifier = 0) {
+    const results = [];
+
+    for (let r = 0; r < number; r++) {
+        results.push(Math.floor(Math.random() * value));
+    }
+
+    return results.reduce((a, b) => a + b, 0) + modifier;
+}
+
+async function getRandomRace() {
+	return await jGameData.races[Math.floor(Math.random() * jGameData.races.length)];
+}
+
+async function getRandomClass() {
+	return await jGameData.classes[Math.floor(Math.random() * jGameData.classes.length)];
+}
+
+async function getRandomScenario() {
+	return await jGameData.scenarios[Math.floor(Math.random() * jGameData.scenarios.length)];
+}
+
+function getAbilityScores() {
+    const scores = [];
+
+    // assign base ability scores, 8-16 allowing for max +2 racial bonus
+    for (let i = 0; i < 6; i++) {
+        scores[i] = Math.floor(Math.random() * 6) + 8; 
+    }
+
+    return scores;
+}
+
+const player = {
+    race: await getRandomRace(),
+    class: await getRandomClass(),
+    abilities: getAbilityScores()
+}
+
+const opponent = {
+    race: await getRandomRace(),
+    class: await getRandomClass(),
+    abilities: getAbilityScores()
+}
 
 module.exports = {
+    player,
+    opponent,
+
 	async execute(interaction) {
 		const roles = interaction.member.roles.cache.map(r => r.name);
 		
-		const settings = {};
+		const game = {};
 
 		const filter = (i) => (i.user.id === interaction.user.id && !interaction.user.bot);
 
@@ -24,23 +73,10 @@ module.exports = {
 			const selection = i.values[0];
 			
 			// set jtac and reset collector, if needed
-			if (menu === 'taskings') {
-				settings.allowAutoRoute = (selection !== "GF" && selection !== "JTAC");
-				settings.isCAS = (selection === 'CAS');
-				settings.isJTAC = (selection === 'JTAC');
-				
-				// all A/A takes place in COYOTE; user is not presented with range selection menu
-				if (selection === "AA") { settings.range = "COYOTE"; }
-				
-				// user has dismissed or abandoned original flight plan and is starting over
-				if (collector.collected.size > 1) collector.empty();
-			} else if (menu === "range" || menu === "jtac-range" || menu === "zones") {
-				settings.range = selection;
-				settings.allowAutoRoute = (settings.range !== "61" && !settings.isJTAC && menu !== "zones");
-			} else if (menu === 'routing') {
-				settings.isAutoRoute = (selection === "1");
-			} else if (menu === 'duration') {
-				settings.duration = selection;
+			if (menu === 'actions') {
+                if (selection === 'ATTACK') {
+                    await interaction.update({ ephemeral: false, embeds: [ menus.getAttackEmbed(rollDice) ], components: [] });
+                }
 			}
 
 			// start specific menu flow
