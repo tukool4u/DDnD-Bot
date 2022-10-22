@@ -8,11 +8,11 @@
     ],
 
     "classes": [
-		{ "name": "Barbarian", "prof": "str", "airframe": "FA18C", "unit": "VFA151" },
-		{ "name": "Wizard", "prof": "int", "airframe": "F16C", "unit": "480THFS" },
-		{ "name": "Rogue", "prof": "dex", "airframe": "A10C", "unit": "25THFS" },
-		{ "name": "Cleric", "prof": "con", "airframe": "UH60", "unit": "66THRQS" },
-		{ "name": "Bard", "prof": "cha", "airframe": "", "unit": "1STCCT" }
+		{ "name": "Barbarian", "prof": "str", "armor": "16", "life": "12" },
+		{ "name": "Wizard", "prof": "int", "armor": "12", "life": "6" },
+		{ "name": "Rogue", "prof": "dex", "armor": "14", "life": "8" },
+		{ "name": "Cleric", "prof": "con", "armor": "16", "life": "8" },
+		{ "name": "Bard", "prof": "cha", "armor": "14", "life": "8" }
 	],
 	
     "weapons": [
@@ -75,7 +75,7 @@
     ],
 
     "actions": [
-        { "label": "ATTACK", "description": "Fight for your life!", "value": "ATTACK" },
+        { "label": "ATTACK", "description": "Fight for your life!", "value": "ATTACK" },           
         { "label": "DECEIVE", "description": "Lie your way out of this.", "value": "DECEIVE" },
         { "label": "PERSUADE", "description": "Convince your opponent you are sorry.", "value": "PERSUADE" },
         { "label": "INTIMIDATE", "description": "Scare your opponent off without a fight.", "value": "INTIMIDATE" },
