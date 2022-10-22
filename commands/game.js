@@ -53,8 +53,8 @@ const opponent = {
 }
 
 module.exports = {
-    player,
-    opponent,
+    player: function () { return player; },
+    opponent: function () { return opponent; },
 
 	async execute(interaction) {
 		const roles = interaction.member.roles.cache.map(r => r.name);
