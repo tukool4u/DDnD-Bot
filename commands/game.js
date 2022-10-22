@@ -17,16 +17,16 @@ function rollDice(number, value, modifier = 0) {
     return results.reduce((a, b) => a + b, 0) + modifier;
 }
 
-async function getRandomRace() {
-	return await jGameData.races[Math.floor(Math.random() * jGameData.races.length)];
+function getRandomRace() {
+	return jGameData.races[Math.floor(Math.random() * jGameData.races.length)];
 }
 
-async function getRandomClass() {
-	return await jGameData.classes[Math.floor(Math.random() * jGameData.classes.length)];
+function getRandomClass() {
+	return jGameData.classes[Math.floor(Math.random() * jGameData.classes.length)];
 }
 
-async function getRandomScenario() {
-	return await jGameData.scenarios[Math.floor(Math.random() * jGameData.scenarios.length)];
+function getRandomScenario() {
+	return jGameData.scenarios[Math.floor(Math.random() * jGameData.scenarios.length)];
 }
 
 function getAbilityScores() {
@@ -40,15 +40,13 @@ function getAbilityScores() {
     return scores;
 }
 
-const player = {
-    race: await getRandomRace(),
-    class: await getRandomClass(),
-    abilities: getAbilityScores()
+const player = () => {
+    return { race: getRandomRace(), class: getRandomClass(), abilities: getAbilityScores() }
 }
 
 const opponent = {
-    race: await getRandomRace(),
-    class: await getRandomClass(),
+    race: getRandomRace(),
+    class: getRandomClass(),
     abilities: getAbilityScores()
 }
 
